@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Resume - Start Bootstrap Theme</title>
+  <title>CV - Shadrack Bodje</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,9 +27,9 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">Clarence Taylor</span>
+      <span class="d-block d-lg-none">Shadrack Emmanuel Bodje</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/shadrack-bodje-profie.jpg" alt="photo de profile de Shadrack Emmanuel Bodje">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,24 +63,24 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
-        <h1 class="mb-0">Clarence
-          <span class="text-primary">Taylor</span>
+        <h1 class="mb-0">Shadrack Emmanuel
+          <span class="text-primary">Bodje</span>
         </h1>
-        <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-          <a href="mailto:name@email.com">name@email.com</a>
+        <div class="subheading mb-5">05 rue Carnot 78130 Les Mureaux
+          <a href="mailto:name@email.com">shadrack.bodje99@gmail.com</a>
         </div>
-        <p class="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+        <p class="lead mb-5">Je suis en Etudiant Bachelor 1 Informatique à Ynov Paris ingesup</p>
         <div class="social-icons">
-          <a href="#">
+          <a href="https://www.linkedin.com/in/shadrack-emmanuel-bodje-37a0b9183/">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="#">
+          <a href="https://github.com/ShadrackBodje13">
             <i class="fab fa-github"></i>
           </a>
-          <a href="#">
+          <a href="https://twitter.com/ShadrackBodje">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="#">
+          <a href="https://www.facebook.com/shadisnickel.bodje">
             <i class="fab fa-facebook-f"></i>
           </a>
         </div>
@@ -88,7 +88,7 @@
     </section>
 
     <hr class="m-0">
-
+    
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
       <div class="w-100">
         <h2 class="mb-5">Experience</h2>
