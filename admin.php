@@ -22,3 +22,26 @@
   <link href="css/resume.min.css" rel="stylesheet">
 
 </head>
+
+<div class="starter-template">  
+    <form method="POST" action="" enctype='multipart/form-data'>
+
+        <div class="form-group">
+            <label for="titre">Titre de l'experience</label>
+            <input type="texte" class="form-control" id="titre" name="titre">
+        </div>
+
+        <div class="form-group">
+            <label for="contenu">sous-titre de l'experience</label>
+            <textarea rows="10" class="form-control" id="contenu" name="contenu"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="titre">description de l'experience</label>
+            <input type="file" class="form-control-file" id="img" name="img[]">
+        </div>
+
+        <button type="submit" class="btn btn-primary">valider</button>
+
+    </form>
+</div>
