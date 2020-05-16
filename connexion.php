@@ -42,7 +42,7 @@ if (isset($_POST['entrez'])) {
       if ($data[0] == 1) {
           session_start();
           $_SESSION['email'] = $_POST['email'];
-          header('Location: liste.php');
+          header('Location: admin.php');
           exit();
       }
       // si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
