@@ -134,7 +134,7 @@ if (isset($_POST['entrez'])) {
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="name@email.com" name="email">
+        <input type="text" class="form-control" id="username" placeholder="nom utilisateur" name="username">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Mot de Passe</label>

@@ -92,15 +92,61 @@
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
       <div class="w-100">
         <h2 class="mb-5">Experience</h2>
+<!-------------------------------------------------------------------------------------------------------->
+<?php 
+
+//Vérification de la superglobale GET et de la présence d'un id à enregistrer dans la superglobale session
+if(!empty($_GET["id_wishlist"])) {
+        //Initialisation de la session
+        session_start();
+
+        //On véréfie si l'id est déjà présent dans la superglobal session
+        $isInWishList = false;
+        foreach($_SESSION as $key => $value) {
+                if ($value == $_GET["id_wishlist"]) {
+                        $isInWishList = true;
+                }
+        }
+
+        //Si il n'est pas présent alors on l'ajoute
+        if (!$isInWishList) {
+                $_SESSION['actu'.$_GET["id_wishlist"]] = $_GET["id_wishlist"];
+        }
+
+}
+
+?>
+
+<!----------------------------------------------------------------------------------------------->
+        <!--Ajout experience via administration avec base de données-->
+        <?php
+//******************************************* */
+// Selection multiple
+$result = $pdo->query("SELECT * FROM experience ORDER BY id_experience DESC");
+while ($experience = $result->fetch(PDO::FETCH_OBJ)) { ?>
+
+        <div class="card">
+                <div class="card-body">
+                        <h5 class="card-title"><?php echo $experience->titre; ?></h5>
+                        <p><?php echo substr($experience->texte, 0, 100) . "..."; ?></p>
+                        <a href="actualite.php?id=<?php echo $actualite->id_actualite; ?>" class="btn btn-primary">Voir détail</a>
+                        <a href="actualites.php?id_wishlist=<?php echo $actualite->id_actualite; ?>" class="btn btn-info">Ajouter à mes favoris</a>
+                </div>
+        </div>  
+
+<?php }
+//******************************************* */
+?>
+        <!------------------------------------------------------------------------------>
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
-            <h3 class="mb-0">Senior Web Developer</h3>
-            <div class="subheading mb-3">Intelitec Solutions</div>
-            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+            <h3 class="mb-0"><?php echo $experience->titre;?></h3>
+            <div class="subheading mb-3"><?php echo $experience->sous_titre;?></div>
+            <p><?php echo experience->experienceDescription;?></p>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">March 2013 - Present</span>
+            <span class="text-primary"><?php echo $experience->date_experience;?></span>
           </div>
         </div>
 
