@@ -29,7 +29,7 @@
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <span class="d-block d-lg-none">Shadrack Emmanuel Bodje</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile1.jpg" alt="photo de profile de Shadrack Emmanuel Bodje">
+      <a href="connexion.php"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile1.jpg" alt="photo de profile de Shadrack Emmanuel Bodje"></a>
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@
           <span class="text-primary">Bodje</span>
         </h1>
         <div class="subheading mb-5">05 rue Carnot 78130 Les Mureaux
-          <a href="mailto:name@email.com">shadrack.bodje99@gmail.com</a>
+          <a href="mailto:shadrack.bodje99@gmail.com">shadrack.bodje99@gmail.com</a>
         </div>
         <p class="lead mb-5">Je suis en Etudiant Bachelor 1 Informatique à Ynov Paris ingesup</p>
         <div class="social-icons">
