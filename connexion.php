@@ -22,7 +22,9 @@
   <link href="css/resume.min.css" rel="stylesheet">
 
 </head>
+
 <?php
+require('data.php');
   // on teste si le visiteur a soumis le formulaire de connexion
 if (isset($_POST['entrez'])) {
   if ((isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
@@ -128,7 +130,7 @@ if (isset($_POST['entrez'])) {
     </section>
 
     
-  <form action="" method="post">
+  <form action="admin.php" method="post">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>
