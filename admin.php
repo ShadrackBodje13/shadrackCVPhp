@@ -23,6 +23,33 @@
 
 </head>
 
+<?php
+//***************************************** */
+//Enregistrement du nouvelle article
+//***************************************** */
+if (!empty($_POST)) {
+
+    //******************************************* */
+    // Insertion
+
+    $_POST["titre"] = htmlentities($_POST["titre"], ENT_QUOTES);
+    $_POST["contenu"] = htmlentities($_POST["contenu"], ENT_QUOTES);
+    $_POST["experienceDescription"] = htmlentities($_POST["experienceDescription"], ENT_QUOTES);
+
+    $requeteSQL = "INSERT INTO actualites (titre, sous-titre, experienceDescription)";
+    $requeteSQL .= " VALUE ('$_POST[titre]', '$_POST[contenu]', '$_POST[experienceDescription]')";
+    //echo $requeteSQL;
+    $result = $pdo->exec($requeteSQL);
+    echo $result . ' experience a été enregistrée<br>';
+    //******************************************* */
+
+}
+
+
+?>
+
+
+
 <div class="starter-template">  
     <form method="POST" action="" enctype='multipart/form-data'>
 
@@ -37,8 +64,8 @@
         </div>
 
         <div class="form-group">
-            <label for="titre">description de l'experience</label>
-            <input type="file" class="form-control-file" id="img" name="img[]">
+            <label for="experienceDescritption">description de l'experience</label>
+            <textarea rows="10" class="form-control" id="contenu" name="experienceDescription"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">valider</button>

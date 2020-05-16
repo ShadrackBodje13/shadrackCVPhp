@@ -25,13 +25,13 @@
 <?php
   // on teste si le visiteur a soumis le formulaire de connexion
 if (isset($_POST['entrez'])) {
-  if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['mdp']) && !empty($_POST['mdp']))) {
+  if ((isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
 
       $base = mysql_connect ('localhost', 'root', '');
       mysql_select_db ('esv', $base);
 
       // on teste si une entrée de la base contient ce couple login / pass
-      $sql = 'SELECT count(*) FROM user WHERE login="'.mysql_escape_string($_POST['login']).'" AND mdp="'.mysql_escape_string($_POST['mdp']).'"';
+      $sql = 'SELECT count(*) FROM compte WHERE login="'.mysql_escape_string($_POST['email']).'" AND mot_de_passe="'.mysql_escape_string($_POST['password']).'"';
       $req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
       $data = mysql_fetch_array($req);
 
@@ -41,7 +41,7 @@ if (isset($_POST['entrez'])) {
       // si on obtient une réponse, alors l'utilisateur est un membre
       if ($data[0] == 1) {
           session_start();
-          $_SESSION['login'] = $_POST['login'];
+          $_SESSION['email'] = $_POST['email'];
           header('Location: liste.php');
           exit();
       }
@@ -77,22 +77,22 @@ if (isset($_POST['entrez'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about"></a>
+          <a class="nav-link js-scroll-trigger" href="#about">_______________________</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#experience"></a>
+          <a class="nav-link js-scroll-trigger" href="#experience">_______________________</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education"></a>
+          <a class="nav-link js-scroll-trigger" href="#education">_______________________</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#skills"></a>
+          <a class="nav-link js-scroll-trigger" href="#skills">_______________________</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#interests"></a>
+          <a class="nav-link js-scroll-trigger" href="#interests">_______________________</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#awards"></a>
+          <a class="nav-link js-scroll-trigger" href="#awards">_______________________</a>
         </li>
       </ul>
     </div>
@@ -128,15 +128,15 @@ if (isset($_POST['entrez'])) {
     </section>
 
     
-  <form action="" method="">
+  <form action="" method="post">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="name@email.com">
+        <input type="email" class="form-control" id="inputEmail4" placeholder="name@email.com" name="email">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Mot de Passe</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Mot de Passe">
+        <input type="password" class="form-control" id="inputPassword4" placeholder="Mot de Passe" name="password">
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Se connecter</button>
