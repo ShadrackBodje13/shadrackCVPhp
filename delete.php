@@ -39,11 +39,11 @@ if (!empty($_POST)) {
     $_POST["experience_description"] = htmlentities($_POST["experience_description"], ENT_QUOTES);
     $_POST["date_experience"] = htmlentities($_POST["date_experience"], ENT_QUOTES);
 
-    $requeteSQL = "INSERT INTO experience (titre, sous_titre,date_experience, experience_description)";
-    $requeteSQL .= " VALUES ('$_POST[titre]', '$_POST[sous_titre]', '$_POST[date_experience]','$_POST[experience_description],')";
+    $requeteSQL = "DELETE FROM experience WHERE titre=$_POST["titre"]";
+    //$requeteSQL .= " VALUES ('$_POST[titre]', '$_POST[sous_titre]', '$_POST[date_experience]','$_POST[experience_description],')";
     //echo $requeteSQL;
     $resultat = $pdo->exec($requeteSQL);
-    echo $resultat . ' experience a été enregistrée<br>';
+    echo $resultat . ' experience supprimée<br>';
     //******************************************* */
 
 }
@@ -57,24 +57,10 @@ if (!empty($_POST)) {
     <form method="POST" action="index.php">
 
         <div class="form-group">
-            <label for="titre">Titre de l'experience</label>
+            <label for="titre">Titre de l'experience à supprimer</label>
             <input type="texte" class="form-control" id="titre" name="titre">
         </div>
 
-        <div class="form-group">
-            <label for="date_description">date de l'experience</label>
-            <textarea rows="4" class="form-control" id="date_experience" name="date_experience"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="contenu">sous-titre de l'experience</label>
-            <textarea rows="10" class="form-control" id="sous_titre" name="sous_titre"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="experience_description">description de l'experience</label>
-            <textarea rows="10" class="form-control" id="experience_description" name="experience_description"></textarea>
-        </div>
 
 
         <button type="submit" class="btn btn-primary">valider</button>

@@ -135,6 +135,8 @@ while ($experience = $result->fetch(PDO::FETCH_OBJ)) { ?>
           <div class="resume-date text-md-right">
             <span class="text-primary"><?php echo $experience->date_experience;?></span>
           </div>
+          <div class="subheading mb-3"><a href="update.php">modifier</a></div>
+          <div class="subheading mb-3"><a href="delete.php">supprimer</a></div>
   </div>
 
 <?php }

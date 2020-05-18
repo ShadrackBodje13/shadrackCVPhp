@@ -45,7 +45,7 @@ if (!empty($_POST)) {
     .", sous_titre'" .$_POST['sous_titre'] . "' "
     .", date_experience'" .$_POST['sous_titre'] . "' "
     .", experience_description'" .$_POST['sous_titre'] . "' "
-    "WHERE titre'";
+    "WHERE titre'" .$_POST['newtitre'];
     $requeteSQL .= " VALUES ('$_POST[titre]', '$_POST[sous_titre]', '$_POST[date_experience]','$_POST[experience_description],')";
     //echo $requeteSQL;
     $resultat = $pdo->exec($requeteSQL);
