@@ -27,11 +27,11 @@
 //***************************************** */
 //Enregistrement du nouvelle experience
 $pdo = new PDO("mysql:host=localhost;dbname=curriculum", "root", "", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-$result = $pdo->query("SELECT * FROM experience ORDER BY id_experience DESC");
-//***************************************** */
+/*$result = $pdo->query("SELECT * FROM experience ORDER BY id_experience DESC");
+
 if (!empty($_POST)) {
 
-    //******************************************* */
+   
     // Insertion
 
     $_POST["titre"] = htmlentities($_POST["titre"], ENT_QUOTES);
@@ -44,26 +44,51 @@ if (!empty($_POST)) {
     //echo $requeteSQL;
     $resultat = $pdo->exec($requeteSQL);
     echo $resultat . ' experience supprimée<br>';
-    //******************************************* */
+    
 
 }
+*/
+
+  if (isset($_POST['idToDelete'])) {
+      $id = $_POST['idToDelete'];
+      echo $id;
+  }
+  ?>
+
+  <?php<br>//connection BDD<br>try{<br>    
+  $bdd = new PDO('mysql:host = localhost;dbname=cur;charset=utf8','root','');<br>echo 'ok';<br>}<br>catch (Exception $e){<br>  die('Erreur : ' . $e->getMessage());<br>}
+ 
+$id_el = $_POST['id'];
+ 
+$bdd->query("DELETE  FROM experience  where id= $id_el");   //suppression dans bdd
+ 
+ 
+header('Location: index.php');
+exit();
+ 
+ 
+// fermeture de la connection à la bdd<br>if ($bdd) {<br>   $bdd = NULL;<br>}<br>?>
 
 
-?>
 
 
 
-<div class="starter-template">  
-    <form method="POST" action="index.php">
+<form>
+<div class="form-group">
 
-        <div class="form-group">
-            <label for="titre">Titre de l'experience à supprimer</label>
-            <input type="texte" class="form-control" id="titre" name="titre">
-        </div>
+    <label for="exampleFormControlSelect1">selectionnez le titre dans l'ordre que vous voulez supprimer</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option id="titre1">1</option>
+      <option id="titre2">2</option>
+      <option id="titre3">3</option>
+      <option id="titre4">4</option>
+      <option id="titre5">5</option>
 
+      <form method="post" action="delete_bdd.php" class="delete_form">
+        <input type="hidden" name="id" value="<?php echo $donnees['id'] ?>"/>
+        <input type="submit" name="valider" class="delete" value="Supprimer" />
+     </form><br><br>
+</select>   
+</form>
 
-
-        <button type="submit" class="btn btn-primary">valider</button>
-
-    </form>
 </body>

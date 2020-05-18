@@ -137,6 +137,7 @@ while ($experience = $result->fetch(PDO::FETCH_OBJ)) { ?>
           </div>
           <div class="subheading mb-3"><a href="update.php">modifier</a></div>
           <div class="subheading mb-3"><a href="delete.php">supprimer</a></div>
+          
   </div>
 
 <?php }
