@@ -22,62 +22,39 @@
   <link href="css/resume.min.css" rel="stylesheet">
 
 </head>
-
-<?php
-//***************************************** */
-//Enregistrement du nouvelle experience
-$pdo = new PDO("mysql:host=localhost;dbname=curriculum", "root", "", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-$result = $pdo->query("SELECT * FROM experience ORDER BY id_experience DESC");
-//***************************************** */
-if (!empty($_POST)) {
-
-    //******************************************* */
-    // Insertion
-
-    $_POST["titre"] = htmlentities($_POST["titre"], ENT_QUOTES);
-    $_POST["sous_titre"] = htmlentities($_POST["contenu"], ENT_QUOTES);
-    $_POST["experience_description"] = htmlentities($_POST["experience_description"], ENT_QUOTES);
-    $_POST["date_experience"] = htmlentities($_POST["date_experience"], ENT_QUOTES);
-
-    $requeteSQL = "INSERT INTO experience (titre, sous_titre, experience_description)";
-    $requeteSQL .= " VALUE ('$_POST[titre]', '$_POST[sous_titre]', '$_POST[experience_description]')";
-    //echo $requeteSQL;
-    $resultat = $pdo->exec($requeteSQL);
-    echo $resultat . ' experience a été enregistrée<br>';
-    //******************************************* */
-
-}
-
-
-?>
-
-
-
-<div class="starter-template">  
-    <form method="POST" action="" enctype='multipart/form-data'>
-
-        <div class="form-group">
-            <label for="titre">Titre de l'experience</label>
-            <input type="texte" class="form-control" id="titre" name="titre">
-        </div>
-
-        <div class="form-group">
-            <label for="date_description">date de l'experience</label>
-            <textarea rows="4" class="form-control" id="date_experience" name="date_experience"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="contenu">sous-titre de l'experience</label>
-            <textarea rows="10" class="form-control" id="sous_titre" name="sous_titre"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="experience_description">description de l'experience</label>
-            <textarea rows="10" class="form-control" id="experience_description" name="experience_description"></textarea>
-        </div>
-
-
-        <button type="submit" class="btn btn-primary">valider</button>
-
-    </form>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Shadrack Emmanuel Bodje</span>
+      <span class="d-none d-lg-block">
+      <a href="connexion.php"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile1.jpg" alt="photo de profile de Shadrack Emmanuel Bodje"></a>
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="add.php">ajouter une experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="update.php">modifier une experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="delete.php">supprimer une experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="">--------------------------------</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="">--------------------------------</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="">--------------------------------</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>
 </div>
