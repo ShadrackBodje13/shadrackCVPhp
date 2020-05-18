@@ -122,68 +122,25 @@ if(!empty($_GET["id_wishlist"])) {
         <?php
 //******************************************* */
 // Selection multiple
+$pdo = new PDO("mysql:host=localhost;dbname=curriculum", "root", "", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 $result = $pdo->query("SELECT * FROM experience ORDER BY id_experience DESC");
 while ($experience = $result->fetch(PDO::FETCH_OBJ)) { ?>
 
-        <div class="card">
-                <div class="card-body">
-                        <h5 class="card-title"><?php echo $experience->titre; ?></h5>
-                        <p><?php echo substr($experience->texte, 0, 100) . "..."; ?></p>
-                        <a href="actualite.php?id=<?php echo $actualite->id_actualite; ?>" class="btn btn-primary">Voir détail</a>
-                        <a href="actualites.php?id_wishlist=<?php echo $actualite->id_actualite; ?>" class="btn btn-info">Ajouter à mes favoris</a>
-                </div>
-        </div>  
+  <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0"><?php echo $experience->titre;?></h3>
+            <div class="subheading mb-3"><?php echo $experience->sous_titre;?></div>
+            <h5><?php echo $experience->experience_description;?></h5>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary"><?php echo $experience->date_experience;?></span>
+          </div>
+  </div>
 
 <?php }
 //******************************************* */
 ?>
         <!------------------------------------------------------------------------------>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0"><?php echo $experience->titre;?></h3>
-            <div class="subheading mb-3"><?php echo $experience->sous_titre;?></div>
-            <p><?php echo experience->experienceDescription;?></p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary"><?php echo $experience->date_experience;?></span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Web Developer</h3>
-            <div class="subheading mb-3">Intelitec Solutions</div>
-            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">December 2011 - March 2013</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Junior Web Designer</h3>
-            <div class="subheading mb-3">Shout! Media Productions</div>
-            <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">July 2010 - December 2011</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0">Web Design Intern</h3>
-            <div class="subheading mb-3">Shout! Media Productions</div>
-            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">September 2008 - June 2010</span>
-          </div>
-        </div>
-
-      </div>
 
     </section>
 

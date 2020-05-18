@@ -27,13 +27,13 @@
 require('data.php');
   // on teste si le visiteur a soumis le formulaire de connexion
 if (isset($_POST['entrez'])) {
-  if ((isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
+  if ((isset($_POST['username']) && !empty($_POST['username'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
 
       $base = mysql_connect ('localhost', 'root', '');
       mysql_select_db ('esv', $base);
 
       // on teste si une entrée de la base contient ce couple login / pass
-      $sql = 'SELECT count(*) FROM compte WHERE login="'.mysql_escape_string($_POST['email']).'" AND mot_de_passe="'.mysql_escape_string($_POST['password']).'"';
+      $sql = 'SELECT count(*) FROM compte WHERE usrename="'.mysql_escape_string($_POST['username']).'" AND mot_de_passe="'.mysql_escape_string($_POST['password']).'"';
       $req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
       $data = mysql_fetch_array($req);
 
@@ -43,7 +43,7 @@ if (isset($_POST['entrez'])) {
       // si on obtient une réponse, alors l'utilisateur est un membre
       if ($data[0] == 1) {
           session_start();
-          $_SESSION['email'] = $_POST['email'];
+          $_SESSION['username'] = $_POST['username'];
           header('Location: admin.php');
           exit();
       }

@@ -25,7 +25,9 @@
 
 <?php
 //***************************************** */
-//Enregistrement du nouvelle article
+//Enregistrement du nouvelle experience
+$pdo = new PDO("mysql:host=localhost;dbname=curriculum", "root", "", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+$result = $pdo->query("SELECT * FROM experience ORDER BY id_experience DESC");
 //***************************************** */
 if (!empty($_POST)) {
 
@@ -33,14 +35,15 @@ if (!empty($_POST)) {
     // Insertion
 
     $_POST["titre"] = htmlentities($_POST["titre"], ENT_QUOTES);
-    $_POST["contenu"] = htmlentities($_POST["contenu"], ENT_QUOTES);
-    $_POST["experienceDescription"] = htmlentities($_POST["experienceDescription"], ENT_QUOTES);
+    $_POST["sous_titre"] = htmlentities($_POST["contenu"], ENT_QUOTES);
+    $_POST["experience_description"] = htmlentities($_POST["experience_description"], ENT_QUOTES);
+    $_POST["date_experience"] = htmlentities($_POST["date_experience"], ENT_QUOTES);
 
-    $requeteSQL = "INSERT INTO actualites (titre, sous-titre, experienceDescription)";
-    $requeteSQL .= " VALUE ('$_POST[titre]', '$_POST[contenu]', '$_POST[experienceDescription]')";
+    $requeteSQL = "INSERT INTO experience (titre, sous_titre, experience_description)";
+    $requeteSQL .= " VALUE ('$_POST[titre]', '$_POST[sous_titre]', '$_POST[experience_description]')";
     //echo $requeteSQL;
-    $result = $pdo->exec($requeteSQL);
-    echo $result . ' experience a été enregistrée<br>';
+    $resultat = $pdo->exec($requeteSQL);
+    echo $resultat . ' experience a été enregistrée<br>';
     //******************************************* */
 
 }
@@ -59,14 +62,20 @@ if (!empty($_POST)) {
         </div>
 
         <div class="form-group">
-            <label for="contenu">sous-titre de l'experience</label>
-            <textarea rows="10" class="form-control" id="contenu" name="contenu"></textarea>
+            <label for="date_description">date de l'experience</label>
+            <textarea rows="4" class="form-control" id="date_experience" name="date_experience"></textarea>
         </div>
 
         <div class="form-group">
-            <label for="experienceDescritption">description de l'experience</label>
-            <textarea rows="10" class="form-control" id="contenu" name="experienceDescription"></textarea>
+            <label for="contenu">sous-titre de l'experience</label>
+            <textarea rows="10" class="form-control" id="sous_titre" name="sous_titre"></textarea>
         </div>
+
+        <div class="form-group">
+            <label for="experience_description">description de l'experience</label>
+            <textarea rows="10" class="form-control" id="experience_description" name="experience_description"></textarea>
+        </div>
+
 
         <button type="submit" class="btn btn-primary">valider</button>
 
